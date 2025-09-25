@@ -7,9 +7,24 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/test")
+    // fetch("http://localhost:5000/api/test")
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data.message))
+    //   .catch((err) => console.error(err));
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: 'Need to memorize measure 12.' })
+    };
+    fetch('http://localhost:5000/api/notes', requestOptions)
+        .then(response => response.json()) // Parse the JSON response
+        .then(data => console.log(data))  // Handle the response data
+        .catch(error => console.error('Error:', error)); // Handle errors
+    
+    fetch('http://localhost:5000/api/notes')
       .then((res) => res.json())
-      .then((data) => console.log(data.message))
+      .then((data) => console.log(data))
       .catch((err) => console.error(err));
   }, []);
 

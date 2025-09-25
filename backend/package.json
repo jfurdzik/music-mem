@@ -1,9 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
   },
   "repository": {
     "type": "git",
@@ -12,6 +15,7 @@
   "author": "jennifer furdzik",
   "license": "ISC",
   "description": "",
+  
   "dependencies": {
     "@prisma/client": "^6.16.2",
     "cors": "^2.8.5",
